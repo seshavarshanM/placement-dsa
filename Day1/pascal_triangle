@@ -1,0 +1,18 @@
+class Solution:
+    def build(self, rows):
+        pas=[]
+        ans =1
+        pas.append(ans)
+        for i in range(1,rows):
+            ans = ans*(rows-i)
+            ans = ans//i
+            pas.append(ans)
+        return pas
+    def generate(self, numRows: int) -> List[List[int]]:
+
+        pascal =[]
+        for i in range(0,numRows):
+            pascal.append(self.build(i+1))
+
+        return pascal
+        
