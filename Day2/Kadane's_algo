@@ -1,0 +1,20 @@
+class Solution:
+    def maxSubArray(self, nums: List[int]) -> int:
+
+        sum =0
+        max = -sys.maxsize -1
+    
+        for i in range(0,len(nums)):
+            if sum == 0:
+                start = 1
+            sum+=nums[i]
+            if sum > max:
+                max = sum
+                startindex = start
+                end = i
+
+            if sum < 0:
+                sum =0
+
+        return max
+        
