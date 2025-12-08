@@ -1,0 +1,16 @@
+class Solution:
+    def merge(self, intervals: List[List[int]]) -> List[List[int]]:
+
+        intervals.sort()
+        current=intervals[0]
+        result = []
+        for rows in intervals:
+           
+                if current[1] >= rows[0]:
+                    current[1] = max(current[1],rows[1])
+                else:
+                    result.append(current)
+                    current = rows
+        result.append(current)
+        
+        return result
