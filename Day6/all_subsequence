@@ -1,0 +1,20 @@
+def findSubsequences(curr, arr, subArr, res):
+  
+    # Base case: When we reach the end of the array,
+    # add the current subsequence to the result
+    if curr == len(arr):
+        res.append(subArr.copy())
+        return
+
+    #  Include the current element in the subsequence
+    subArr.append(arr[curr])
+
+    # Recurse to the next element
+    findSubsequences(curr + 1, arr, subArr, res)
+
+    # Backtrack: Remove the current element and
+    # explore the next possibility
+    subArr.pop()
+
+    #  Do not include the current element in the subsequence
+    findSubsequences(curr + 1, arr, subArr, res)
