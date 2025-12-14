@@ -1,0 +1,12 @@
+class Solution:
+    def twoSum(self, nums: List[int], target: int) -> List[int]:
+        size = len(nums)
+        hash = {}
+        for i in range(len(nums)):
+
+            balance = target - nums[i]
+            if balance in hash:
+                return [hash[balance] , i]
+            hash[nums[i]] = i
+        return[]
+        
