@@ -1,0 +1,20 @@
+class Solution:
+    def lengthOfLongestSubstring(self, s: str) -> int:
+
+        maxlen = 0
+        lenth =0
+        hash = [-1]*(256)
+        l =0
+        r =0
+        while r <len(s):
+            ch = ord(s[r])
+            if hash[ch] > -1:
+                if l <= hash[ch]:
+                    l = hash[ch]+1
+            
+            hash[ch] = r
+            lenth = r -l +1
+            maxlen = max(lenth,maxlen)
+            r+=1
+        return maxlen
+        
