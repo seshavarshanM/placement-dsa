@@ -1,0 +1,27 @@
+class Solution:
+    def addTwoNumbers(self, l1: Optional[ListNode], l2: Optional[ListNode]) -> Optional[ListNode]:
+        temp = ListNode(0)
+        head = temp
+        sumi=0
+        car =0
+        while l1 != None or l2!= None or car!=0:
+
+            if l1:
+                v1 = l1.val
+            else:
+                v1=0
+            if l2:
+                v2 = l2.val
+            else:
+                v2=0
+            sumi=v1+v2+car
+            car = sumi//10
+            digit = sumi %10
+            temp.next = ListNode(digit)
+            temp = temp.next
+            if l1:
+                l1=l1.next
+            if l2:
+                l2=l2.next
+        return head.next
+            
